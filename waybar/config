@@ -1,0 +1,51 @@
+{
+ "layer": "top",
+ "position": "top",
+ "modules-left": [ "hyprland/workspaces"],
+ "module-center": ["clock"],
+ "module-right": ["swaync", "battery", "keyboard-sate", "pulseaudio", "clock"],
+
+ "hyprland/workspaces": {
+   "format": "{icon}",
+   "on-click": "activate",
+   "format-icons": {
+     "default": "\uf111"
+},
+
+"battery": {
+  "format": "{capacity}%"
+  "format-charging": "\uf0e7 {capacity}
+%"
+  "format-icons": ["\uf244", "\uf243",
+"\uf242", "\uf241", "\uf240"]
+},
+
+"network": {
+  "format-wifi": "{signalStrength}%
+{ifname}",
+  "format-ethernet": "LAN",
+  "format-disconnected": "No net"
+},
+
+"keyboard-state": {
+  "format": "{name}"
+},
+
+"pulseaudio": {
+  "format": "{volume}%", 
+  "format-muted": "uf6a9",
+  "format-icons": {
+   "muted": "\uf6a9",
+   "low": "\uf026",
+   "medium": "\uf027",
+   "high": "\uf028"
+ }
+},
+
+"swaync": {
+  "tooltip": false
+},
+
+"clock": {
+  "format": "{:%I:%M %p}"
+}

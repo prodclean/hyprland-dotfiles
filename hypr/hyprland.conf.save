@@ -1,0 +1,54 @@
+monitor=HDMI-A-1,1920x1080@120,0x0,1
+monitor=eDP-1,1024x720@10,1920x0,1.333333
+
+input {
+  kb_layout=us
+  follow_mouse=1
+  touchpad {
+    natural_scroll=yes
+  }
+}
+
+animations {
+  enabled=0
+}
+
+general {
+  gaps_in=5
+  gaps_out=10
+  border_size=2
+  col.active_border=0xff30655f
+  col.inactive_border=0xff653036
+  layout=dwindle
+}
+
+
+exec-once = swaync
+exec-once = waybar
+exec-once = swww init
+exec-once = ~/.config/hypr/scripts/start-polkit.sh
+exec-once = /usr/lib/
+exec-once = wl-paste --watch cliphist store &
+
+
+# -- keybindings ------------------- 
+bind=ALT, F4, killactive 
+bind = SUPER, F, fullscreen 
+bind = SUPER, T, exec, foot
+bind = SUPER, =, exec, wl--magnifier
+bind = SUPER, S, exec, swww img ~/Pictures/wallpaper.jpg
+bind = SUPER, SPACE, togglefloating
+bind = SUPER, F11, exec, hyprctl keyword monitor "HDMI-A-1,2560x1440@58,0x0,1.250000"
+bind = SUPER, F12, exec, bash -c 'hyprctl keyword monitor "HDMI-A-1,reset"; sleep 0.3; hyprctl keyword monitor "HDMI-A-1,1920X1080@120,0x0,1"' 
+bind = SUPER, v, exec, wl-paste -n | hyprctl dispatch exec
+bind = SUPER, v, exec, /home/cinnamon0w0/bin/cliphist-rofi.sh
+bind = SUPER, c, exec, /home/cinnamon0w0/bin/super-copy.sh
+bind = SUPER, x, exec, /home/cinnamon0w0/bin/super-cut.sh
+
+
+
+
+
+
+# Environments variables
+env = XCURSOR_THEME,Bibata-Modern-Ice
